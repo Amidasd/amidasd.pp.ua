@@ -1,28 +1,39 @@
-﻿<?php
-
-$lang['global_home_registration_info_all_fields'] = "Все поля являются обязательными для заполнения.";
-$lang['global_home_registration_your_email'] = "Ваш email";
-$lang['global_home_registration_enter_your_email'] = "Введите email";
-$lang['global_home_registration_your_password'] = "Ваш пароль";
-$lang['global_home_registration_enter_password'] = "Введите пароль";
-$lang['global_home_registration_repeat_password'] = "Повторите пароль";
-$lang['global_home_registration_your_name'] = "Ваше имя";
-$lang['global_home_registration_enter_your_name'] = "Введите имя";
-$lang['global_home_registration_cancel'] = "Отмена";
-$lang['global_home_forgot_your_password'] = "Забыли пароль?";
-$lang['global_home_registration_error_name'] = "Имя должно содержать от 2 до 20 символов кроме цифр";
-$lang['global_home_registration_error_name_space'] = "Поле имя не должно быть пустым!";
-$lang['global_home_registration_error_password'] = "Пароль должен быть не менее 4 и не более 20 символов и содержать только строчные и прописные латинские буквы и цифры";
-$lang['global_home_registration_error_password_space'] = "Поле пароль не должно быть пустым!";
-$lang['global_home_registration_error_password2'] = "Пароли не совпадают";
-$lang['global_home_registration_error_email'] = "Email уже зарегистрирован";
-$lang['global_home_registration_error_email_incorrect'] = "Email некорректен";
-$lang['global_home_registration_error_email_space'] = "Поле email не должно быть пустым!";
-$lang['global_home_incorrect_auth']="Не верно введены имя пользователя или пароль, либо вы еще не активировали учетную запись";
-$lang['global_home_projects'] = "Проект";
-$lang['global_home_projects_enter_your_project'] = "Введите название проекта";
-$lang['global_home_projects_create'] = "Создать проект";
-$lang['global_home_projects_fields'] = "Поле проект не заполненно";
-$lang['global_home_projects_error'] = "Имя должно содержать от 1 до 255 любых символов";
+<?php
+$lang['global_home_registration_info_all_fields'] = "All fields are required.";
+$lang['global_home_registration_your_email'] = "Your email";
+$lang['global_home_registration_enter_your_email'] = "Enter your email";
+$lang['global_home_registration_your_password'] = "Your password";
+$lang['global_home_registration_enter_password'] = "Enter the password";
+$lang['global_home_registration_repeat_password'] = "Repeat the password";
+$lang['global_home_registration_your_name'] = "Name";
+$lang['global_home_registration_enter_your_name'] = "Enter the name";
+$lang['global_home_registration_cancel'] = "Cancel";
+$lang['global_home_forgot_your_password'] = "Lost Password?";
+$lang['global_home_registration_error_name'] = "Name must contain from 2 to 20 characters except digits";
+$lang['global_home_registration_error_name_space'] = "The field name is not to be empty!";
+$lang['global_home_registration_error_password'] = "The password should be at least 4 and no more than 20 characters and contain only uppercase and lowercase letters and numbers";
+$lang['global_home_registration_error_password_space'] = "Password field can not be empty!";
+$lang['global_home_registration_error_password2'] = "Passwords do not match";
+$lang['global_home_registration_error_email'] = "Email is already registered";
+$lang['global_home_registration_error_email_incorrect'] = "Email is invalid";
+$lang['global_home_registration_error_email_space'] = "Email field must not be empty!";
+$lang['global_home_incorrect_auth']="Not right entered your username or password";
+$lang['global_home_projects'] = "Project";
+$lang['global_home_projects_enter_your_project'] = "Enter project name";
+$lang['global_home_projects_create'] = "Create project";
+$lang['global_home_projects_fields'] = "Field project not filled";
+$lang['global_home_projects_error'] = "Project name must contain from 1 to 255 of any characters.";
 $lang['global_home_create_task'] = "Start typing here to create a task...";
 $lang['global_home_add_task'] = "Add Task";
+$lang['global_home_incorrect_project'] = "The project is not yours";
+$lang['global_home_project_empty'] = "Project name cannot be empty";
+$lang['global_home_incorrect_task'] = "The task is not yours";
+$lang['global_home_task_empty'] = "Task name cannot be empty";
+$lang['global_home_out'] = "Out";
+$lang['global_home_incorrect_task_check'] = "Wrong value field Check";
+$lang['global_home_email'] = "Email";
+$lang['global_home_password'] = "Password";
+$lang['global_home_enter'] = "Enter";
+$lang['global_home_registration'] = "Registration";
+
+

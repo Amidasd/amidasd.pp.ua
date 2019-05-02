@@ -22,7 +22,8 @@ class mdl_task extends Crud{
                 ),
              array(
                 'field'=>'name',
-                'label'=>'name'
+                'label'=>'name',
+                'rules'=>'required'
                 ),
              array(
                 'field'=>'project_id',
@@ -33,4 +34,18 @@ class mdl_task extends Crud{
                 'label'=>'priority'
                 ),
             );
+      //Правила валидации для редактирования
+    var $edit_rules = array(
+
+
+              array(
+                'field'=>'name',
+                'label'=>'Task name',
+                'rules'=>'required'
+                ),
+  
+
+
+        );       
+            
 }

@@ -26,4 +26,13 @@ class mdl_projects extends Crud{
                 ),
             
             );
+            
+      var $edit_rules  = array(
+            array(
+                'field'=>'name',
+                'label'=>'Name',
+                'rules'=>'required'
+                ),
+            
+            );
 }

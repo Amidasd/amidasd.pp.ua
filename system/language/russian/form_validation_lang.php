@@ -9,7 +9,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['form_validation_required'] = 'Поле {field} обязательно.';
+$lang['form_validation_required'] = 'Field {field} required.';
 $lang['form_validation_isset'] = 'Поле {field} должно быть заполнено.';
 $lang['form_validation_valid_email'] = 'Поле {field} должно содержать правильный E-mail адрес.';
 $lang['form_validation_valid_emails'] = 'Поле {field} должно содержать правильные E-mail адреса.';

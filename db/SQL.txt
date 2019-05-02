@@ -1,0 +1,158 @@
+- get all statuses, not repeating, alphabetically ordered :
+Select DISTINCT
+	tasks.status
+from
+tasks
+ORDER BY status
+
+- get the count of all tasks in each project, order by tasks count 
+descending :
+Select
+	Projects.id,
+	Projects.name,
+	Count(DISTINCT tasks.id) as CountTask
+from
+	Projects
+		LEFT JOIN tasks
+		ON Projects.id = tasks.project_id
+
+ GROUP BY
+	Projects.name,
+	Projects.id
+ORDER BY CountTask DESC
+
+- get the count of all tasks in each project, order by projects names :
+Select
+	Projects.id,
+	Projects.name,
+	Count(DISTINCT tasks.id) as CountTask
+from
+	Projects
+		LEFT JOIN tasks
+		ON Projects.id = tasks.project_id
+
+ GROUP BY
+	Projects.name,
+	Projects.id
+ORDER BY name DESC
+
+- get the tasks for all projects having the name beginning with 
+"N" letter :
+Select
+	tasks.id,
+	tasks.name
+from
+	Projects
+		LEFT JOIN tasks
+		ON Projects.id = tasks.project_id
+where
+	Projects.name LIKE 'N%'
+
+
+- get the list of all projects containing the 'a' letter in the middle of the name, and show the tasks count near each project. Mention that there can exist projects without tasks and tasks with project_id = NULL :
+
+Select
+	Projects.id,
+	Projects.name,
+	Count(DISTINCT tasks.id) as CountTask
+from
+	Projects
+		LEFT JOIN tasks
+		ON Projects.id = tasks.project_id
+where
+	Projects.name LIKE '%a%'
+GROUP BY
+	name,
+	id
+
+- get the list of tasks with duplicate names. Order alphabetically 
+
+SELECT * 
+From tasks 
+Where tasks.name in (
+SELECT tasks.name
+FROM tasks
+GROUP BY name
+HAVING COUNT(name)>1)
+ORDER BY name
+
+- get list of tasks having several exact matches of both name and 
+status, from the project 'Garage'. Order by matches count :
+
+SELECT
+	tasks.id,
+	tasks.name,
+	tasks.status,
+	vt.count as count
+FROM
+	Projects 
+		LEFT JOIN tasks 
+			LEFT JOIN (SELECT
+				tasks.name as name1,
+				tasks.status as status,
+				COUNT(DISTINCT tasks.id) as count
+			FROM
+				Projects
+					LEFT JOIN tasks
+					ON Projects.id = tasks.project_id
+			WHERE
+				Projects.name LIKE 'Garage'
+			
+			GROUP BY 
+				tasks.name,
+				tasks.status
+			
+			HAVING
+				COUNT(DISTINCT tasks.id) > 1) as vt
+			ON tasks.name = vt.name1
+				AND tasks.status = vt.status
+		ON Projects.id = tasks.project_id
+WHERE
+	Projects.name LIKE 'Garage'
+	AND (tasks.name, tasks.status) IN
+			(SELECT
+				vt2.name1,
+				vt2.status
+			FROM
+				(SELECT
+					tasks.name as name1,
+					tasks.status as status,
+					COUNT(DISTINCT tasks.id) as count
+				FROM
+					Projects
+						LEFT JOIN tasks
+						ON
+							Projects.id = tasks.project_id
+				WHERE
+					Projects.name LIKE 'Garage'
+				GROUP BY 
+					tasks.name,
+					tasks.status
+				HAVING
+					COUNT(DISTINCT tasks.id) > 1) AS vt2)
+
+ORDER BY
+	count DESC
+
+- get the list of project names having more than 10 tasks in status 'completed'. Order by project_id :
+
+SELECT
+	Projects.id,
+	Projects.name
+FROM
+	Projects
+WHERE
+	Projects.id IN
+			(SELECT
+				tasks.project_id AS project_id
+			FROM
+				tasks
+			WHERE
+				tasks.status = 'completed'
+			GROUP BY
+				tasks.project_id
+			HAVING
+				COUNT(DISTINCT tasks.status) > 10)
+
+ORDER BY
+	name
